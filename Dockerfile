@@ -30,6 +30,13 @@ RUN npm install --prefix ./assets && \
 COPY config ./config
 COPY lib ./lib
 COPY priv ./priv
+COPY Makefile ./Makefile
+
+RUN curl -L  https://github.com/CycloneDX/cyclonedx-cli/releases/download/v0.10.3/cyclonedx-linux-x64 --output cyclonedx-cli && chmod a+x cyclonedx-cli
+RUN make sbom
+RUN ls
+RUN cp bom* ./assets/static
+RUN ls assets/static
 
 # Final build step: digest static assets and generate the release
 RUN mix phx.digest && mix release
@@ -50,7 +57,3 @@ USER app
 
 
 CMD ["./entrypoint.sh"]
-
-
-
-

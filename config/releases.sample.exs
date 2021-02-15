@@ -1,5 +1,7 @@
 import Config
 
+host_url = "35.232.208.120"
+
 # Configure your database
 config :quadquizaminos, Quadquizaminos.Repo,
   username: "postgres",
@@ -26,3 +28,5 @@ config :ueberauth, Ueberauth.Strategy.Github.OAuth,
 config :quadquizaminos,
   # add github_id of authorized users
   github_ids: []
+
+config :quadquizaminos, QuadquizaminosWeb.Endpoint, url: [host: host_url, port: 4000]

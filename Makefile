@@ -60,6 +60,13 @@ test: ## Run the test suite
 format: mix format ## Run formatting tools on the code
 
 
+.PHONY: sbom
+sbom: ## creates sbom for both  npm and hex dependancies
+	mix deps.get && mix sbom.cyclonedx -o elixir_bom.xml
+	cd assets/  && npm install && npm install -g @cyclonedx/bom && cyclonedx-bom -o ../bom.xml -a ../elixir_bom.xml && cd ..
+	./cyclonedx-cli convert --input-file bom.xml --output-file bom.json
+
+
 release: ## Build a release of the application with MIX_ENV=prod
 	MIX_ENV=prod mix deps.get --only prod
 	MIX_ENV=prod mix compile
@@ -71,7 +78,7 @@ release: ## Build a release of the application with MIX_ENV=prod
 
 .PHONY: docker-image
 docker-image: #builds docker image
-	docker build . -t quadquiz:$(APP_VERSION) 
+	docker build . -t quadquiz:$(APP_VERSION)
 
 .PHONY: push-image-gcp push-and-serve deploy-existing-image
 push-image-gcp: ## push image to gcp
@@ -84,7 +91,7 @@ push-image-gcp: ## push image to gcp
 	gcloud container images delete gcr.io/twinklymaha/quadquiz:$(APP_VERSION) --force-delete-tags  || echo "no image to delete on the remote"
 	docker push gcr.io/twinklymaha/quadquiz:$(APP_VERSION)
 
-.PHONY: push-image-gcp deploy-existing-image 
+.PHONY: push-image-gcp deploy-existing-image
 push-and-serve-gcp: ## creates docker image then push to gcp and launches an instance with the image
 
 .PHONY: deploy-existing-image
