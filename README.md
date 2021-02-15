@@ -29,7 +29,7 @@ Instructions to deployment can be found on [deployment docs](./docs/deployment.m
 
 ## Set up Github OAuth app
 
-Use [Github guide](https://docs.github.com/en/developers/apps/creating-an-oauth-app) to create an OAuth app. 
+Use [Github guide](https://docs.github.com/en/developers/apps/creating-an-oauth-app) to create an OAuth app.
 Provide the information for `Homepage URL` and `Authorization Callback URL` in the following formats:
 
 ###### Homepage URL:
@@ -43,8 +43,11 @@ Provide the information for `Homepage URL` and `Authorization Callback URL` in t
 `External_IP` is provided once a VM instance is launched.
 
 
+## SBOM
+To access the SBOM of the project, visit `bom.json` or `bom.xml` to get them in json or xml format
+
 ## to run game
-In order to run the game, you must be a configurable player who has been provided with permission access to play the game. Players are required to login with their github account. 
+In order to run the game, you must be a configurable player who has been provided with permission access to play the game. Players are required to login with their github account.
 
 Instruction of how to play the game has been provided on the dashboard. Once you start the game, you will be able to see list of instruction displayed.
 
