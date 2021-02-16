@@ -11,7 +11,8 @@ import Config
 # before starting your production server.
 config :quadquizaminos, QuadquizaminosWeb.Endpoint,
   url: [host: "localhost", port: 4000],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  check_origin: false
 
 # Do not print debug messages in production
 config :logger, level: :info
