@@ -20,7 +20,3 @@ config :quadquizaminos, QuadquizaminosWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
-
-config :phoenix_integration,
-  endpoint: QuadquizaminosWeb.Endpoint,
-  warnings: false

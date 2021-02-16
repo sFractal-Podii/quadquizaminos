@@ -48,8 +48,7 @@ defmodule Quadquizaminos.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:ueberauth, "~> 0.6"},
-      {:ueberauth_github, "~> 0.7"},
-      {:phoenix_integration, "~> 0.8", only: :test}
+      {:ueberauth_github, "~> 0.7"}
     ]
   end
 
