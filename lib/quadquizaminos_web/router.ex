@@ -22,9 +22,9 @@ defmodule QuadquizaminosWeb.Router do
   scope "/", QuadquizaminosWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-    pipe_through :authorize
+    live "/", PageLive
 
+    pipe_through :authorize
     live "/tetris", TetrisLive
   end
 

@@ -7,7 +7,6 @@ defmodule QuadquizaminosWeb.AuthController do
 
   plug Ueberauth
 
-  alias Ueberauth.Strategy.Helpers
   alias Quadquizaminos.UserFromAuth
 
   def delete(conn, _params) do

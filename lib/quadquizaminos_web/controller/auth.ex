@@ -1,6 +1,6 @@
 defmodule QuadquizaminosWeb.Auth do
   @moduledoc """
-  Authorization plug
+  Auth plug, checks for the current user and adds them to assigns.
   """
   import Plug.Conn
   use QuadquizaminosWeb, :controller
