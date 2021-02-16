@@ -83,9 +83,9 @@ push-image-gcp: ## push image to gcp
 
 	gcloud container images delete gcr.io/twinklymaha/quadquiz:$(APP_VERSION) --force-delete-tags  || echo "no image to delete on the remote"
 	docker push gcr.io/twinklymaha/quadquiz:$(APP_VERSION)
+		
+push-and-serve-gcp: push-image-gcp deploy-existing-image ## creates docker image then push to gcp and launches an instance with the image
 
-.PHONY: push-image-gcp deploy-existing-image 
-push-and-serve-gcp: ## creates docker image then push to gcp and launches an instance with the image
 
 .PHONY: deploy-existing-image
 deploy-existing-image: ## creates an instance using existing gcp docker image
